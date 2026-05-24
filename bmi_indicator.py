@@ -1,10 +1,9 @@
 def indicator(bmi):
-    match bmi:
-        case float() | int() as val if val < 18.5:
-            return "Underweight"
-        case float() | int() as val if 18.5 <= val < 25:
-            return "Normal weight"
-        case float() | int() as val if 25.0 <= val < 30:
-            return "Overweight"
-        case float() | int() as val if val >= 30:
-            return "Obesity"
+    if bmi < 18.5:
+        return "Underweight"
+    elif bmi < 25:
+        return "Normal weight"
+    elif bmi < 30:
+        return "Overweight"
+    else:
+        return "Obesity"
