@@ -1,4 +1,5 @@
 import bmi_calculator
+import bmi_indicator
 from tkinter import *
 
 def submit():
@@ -6,13 +7,16 @@ def submit():
         weight = int(weight_entry.get())
         height = int(height_entry.get())
     except ValueError as e:
-        variable.set(f"You did not enter a number!")
+        bmi_variable.set(f"You did not enter a number!")
+        indicator_variable.set("")
     else:
         if weight > 0 and height > 0:
-            bmi = bmi_calculator.Bmi(weight, height)
-            variable.set(f"Your bmi {bmi}")
+            bmi = bmi_calculator.calculator(weight, height)
+            bmi_variable.set(f"Your bmi {bmi}")
+            indicator_variable.set(bmi_indicator.indicator(bmi))
         else:
-            variable.set(f"You did not enter a positive number!")
+            bmi_variable.set(f"You did not enter a positive number!")
+            indicator_variable.set("")
 
 
 window = Tk()
@@ -31,17 +35,24 @@ weight_entry.pack()
 
 height_label = Label(window, text = "Insert your height (cm): ")
 height_label.pack()
+
 height_entry = Entry(window, font=('Arial', 10, 'bold'))
 height_entry.pack()
 
 submit_button = Button(window, text="submit", command=submit)
 submit_button.pack()
 
-variable = StringVar()
-variable.set("")
+bmi_variable = StringVar()
+bmi_variable.set("")
 
-your_bmi = Label(window, textvariable=variable)
+your_bmi = Label(window, textvariable=bmi_variable)
 your_bmi.pack()
+
+indicator_variable = StringVar()
+indicator_variable.set("")
+
+your_indicator = Label(window, textvariable=indicator_variable)
+your_indicator.pack()
 
 window.iconphoto(True, icon)
 window.mainloop()
