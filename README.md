@@ -18,3 +18,5 @@ $$BMI = \frac{weight\ (kg)}{height\ (m)^2}$$
 | 30.0 and above | Obesity |
 
 ---
+<img width="421" height="451" alt="Zrzut ekranu 2026-05-24 151938" src="https://github.com/user-attachments/assets/f6f82df1-fb87-413a-bdcf-135ca1f53e6c" />
+
